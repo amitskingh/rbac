@@ -29,6 +29,27 @@ export const users = [
   },
 ]
 
+export const allUsers = [
+  {
+    id: 1,
+    name: "Alice Johnson",
+    role: "Admin",
+    permissions: ["Read", "Write", "Delete"],
+  },
+  {
+    id: 2,
+    name: "Bob Smith",
+    role: "Editor",
+    permissions: ["Read", "Write"],
+  },
+  {
+    id: 3,
+    name: "Charlie Brown",
+    role: "Viewer",
+    permissions: ["Read"],
+  },
+]
+
 export const posts = [
   {
     id: 1,

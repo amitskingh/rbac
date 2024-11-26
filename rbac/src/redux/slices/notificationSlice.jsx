@@ -1,19 +1,24 @@
 import { createSlice } from "@reduxjs/toolkit"
 
+const initialState = {
+  // notification: { message: "Take a break", type: "info" }, // Initial state
+  notification: null, // Initial state
+}
+
 const notificationSlice = createSlice({
   name: "notification",
-  initialState: { message: "chill", type: "info" }, // No notification initially
+  initialState, // Use 'initialState' for defining the initial state
   reducers: {
     setNotification: (state, action) => {
       console.log(action)
 
-      return {
+      state.notification = {
         message: action.payload.message,
         type: action.payload.type || "info", // 'success', 'error', etc.
       }
     },
-    clearNotification: () => {
-      return null // Reset the notification
+    clearNotification: (state) => {
+      state.notification = null // Reset to initial state
     },
   },
 })

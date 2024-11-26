@@ -1,35 +1,40 @@
 import React from "react"
 import { FaEdit, FaTrash, FaUserCircle } from "react-icons/fa"
 import { Link } from "react-router-dom"
+import { allUsers } from "../mock/mockData"
+import Notifications from "../components/Notifications"
+import { useDispatch, useSelector } from "react-redux"
+import { setNotification } from "../redux/slices/notificationSlice"
 
 export default function AllUsers() {
-  const users = [
-    {
-      id: 1,
-      name: "Alice Johnson",
-      role: "Admin",
-      permissions: ["Read", "Write", "Delete"],
-    },
-    {
-      id: 2,
-      name: "Bob Smith",
-      role: "Editor",
-      permissions: ["Read", "Write"],
-    },
-    {
-      id: 3,
-      name: "Charlie Brown",
-      role: "Viewer",
-      permissions: ["Read"],
-    },
-  ]
+  const dispatch = useDispatch()
+
+  const handleDeleteUser = async () => {
+    try {
+      // Simulate success
+      dispatch(
+        setNotification({
+          message: "User removed successfully!",
+          type: "success",
+        })
+      )
+    } catch (error) {
+      // Handle error
+      dispatch(
+        setNotification({
+          message: "Failed to delete remove the user.",
+          type: "error",
+        })
+      )
+    }
+  }
 
   return (
     <center>
       <div className="max-w-4xl p-6  min-h-screen">
         <h1 className="text-2xl font-semibold mb-4">All Users</h1>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          {users.map((user) => (
+          {allUsers.map((user) => (
             <div
               key={user.id}
               className="max-w-sm bg-white shadow-lg rounded-lg p-4 flex flex-col items-start space-y-2 border border-gray-200"
@@ -66,6 +71,7 @@ export default function AllUsers() {
                   <FaEdit />
                 </Link>
                 <button
+                  onClick={() => handleDeleteUser()}
                   className="p-2 bg-red-100 text-red-600 rounded-full hover:bg-red-200"
                   aria-label="Delete"
                 >
@@ -76,6 +82,7 @@ export default function AllUsers() {
           ))}
         </div>
       </div>
+      <Notifications />
     </center>
   )
 }

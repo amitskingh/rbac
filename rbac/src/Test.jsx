@@ -1,4 +1,4 @@
-import { clearNotification } from "../redux/slices/notificationSlice"
+import { clearNotification } from "./redux/slices/notificationSlice"
 import { useDispatch, useSelector } from "react-redux"
 
 const Notifications = () => {

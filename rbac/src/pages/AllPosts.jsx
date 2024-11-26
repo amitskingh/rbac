@@ -1,20 +1,13 @@
 import React from "react"
 import { FaTrash } from "react-icons/fa"
-import { useDispatch, useSelector } from "react-redux"
 import { posts } from "../mock/mockData"
+import { useDispatch, useSelector } from "react-redux"
 import { setNotification } from "../redux/slices/notificationSlice"
 import Notifications from "../components/Notifications"
 
 export default function AllPosts() {
-  setNotification({
-    message: "Failed to delete the post.",
-    type: "error",
-  })
   const { user } = useSelector((state) => state.auth)
-  const notification = useSelector((state) => state.notification) // Single notification
   const dispatch = useDispatch()
-
-  console.log(notification)
 
   const handleDeletePost = async () => {
     try {
@@ -68,7 +61,7 @@ export default function AllPosts() {
           ))}
         </div>
       </div>
-      <Notifications notification={notification} />
+      <Notifications />
     </center>
   )
 }

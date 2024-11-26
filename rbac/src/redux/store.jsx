@@ -4,6 +4,7 @@ import loadingReducer from "./slices/loadingSlice"
 import errorReducer from "./slices/errorSlice"
 import { persistStore, persistReducer } from "redux-persist"
 import storage from "redux-persist/lib/storage"
+import notificationReducer from "./slices/notificationSlice"
 
 const persistConfig = {
   key: "root",
@@ -18,6 +19,7 @@ const store = configureStore({
     auth: persistedAuthReducer,
     loading: loadingReducer,
     error: errorReducer,
+    notification: notificationReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
