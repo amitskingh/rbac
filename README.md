@@ -57,7 +57,7 @@ npm start
 ## Folder Structure
 
 ```
-src/
+
 ├── components/         # Reusable components like Navbar
 ├── pages/              # Application pages (Login, AllPosts, etc.)
 ├── routes/             # ProtectedRoute component for role-based access
