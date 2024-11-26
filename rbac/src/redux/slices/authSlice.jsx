@@ -1,13 +1,15 @@
 import { createSlice, isAction } from "@reduxjs/toolkit"
 
+const temp = {
+  id: 0,
+  name: "Naruto",
+  email: "naruto@gmail.com",
+  role: "moderator",
+  password: "naruto",
+}
+
 const initialState = {
-  user: {
-    id: 0,
-    name: "Naruto",
-    email: "naruto@gmail.com",
-    role: "admin",
-    password: "naruto",
-  },
+  user: null,
   isAuthenticated: false,
 }
 
@@ -17,6 +19,8 @@ const authSlice = createSlice({
   reducers: {
     login: (state, action) => {
       const { user } = action.payload
+      console.log(user)
+
       state.user = user
       state.isAuthenticated = true
     },

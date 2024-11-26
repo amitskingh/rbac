@@ -4,15 +4,15 @@ import { users, posts } from "./mockData"
 export const loginUser = (email, password) => {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
-      const user = users.find((user) => user.email === email)
-      if (!user) {
+      const curUser = users.find((user) => user.email === email)
+      if (!curUser) {
         reject("User not found")
-      } else if (user.password !== password) {
+      } else if (curUser.password !== password) {
         reject("Invalid password")
       } else {
         // Exclude the password from the resolved user object
-        const { password, ...userWithoutPassword } = user
-        resolve(userWithoutPassword)
+        const { password, ...user } = curUser
+        resolve({ user })
       }
     }, 1000)
   })

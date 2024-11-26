@@ -32,10 +32,7 @@ export default function Login() {
   const passwordRef = useRef()
 
   const navigate = useNavigate()
-
   const dispatch = useDispatch()
-
-  const { loading, error } = useSelector((state) => state.auth)
 
   const handleLogin = async (e) => {
     e.preventDefault()
@@ -48,13 +45,15 @@ export default function Login() {
         passwordRef.current.value
       )
 
+      const user = response.user
+
       dispatch(
         login({
-          user: response,
+          user,
         })
       ) // Dispatch the login action with the user data
 
-      console.log(response)
+      console.log(user)
 
       navigate("/app") // Redirect to dashboard on successful login
     } catch (err) {
@@ -144,11 +143,13 @@ export default function Login() {
                 type="submit"
                 className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
               >
-                {loading ? <Loading /> : "Sign in"}
+                Sign In
               </button>
+
+              <Loading />
             </div>
 
-            {error && <ErrorMessage />}
+            <ErrorMessage />
           </form>
         </div>
       </div>

@@ -1,7 +1,11 @@
 import { XMarkIcon } from "@heroicons/react/20/solid"
+import { useSelector } from "react-redux"
 import { Link } from "react-router-dom"
 
 export default function Banner() {
+  const { isAuthenticated } = useSelector((state) => state.auth)
+  console.log(isAuthenticated)
+
   return (
     <div className="flex justify-center items-center gap-x-6 overflow-hidden bg-gray-50 px-6 py-2.5 sm:px-3.5">
       <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
@@ -17,7 +21,7 @@ export default function Banner() {
           Simplify access management with role-based controls.
         </p>
         <Link
-          to="/login"
+          to={isAuthenticated === true ? "/app" : "/login"}
           className="flex-none rounded-full bg-gray-900 px-3.5 py-1 text-sm font-semibold text-white shadow-sm hover:bg-gray-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-900"
         >
           Login <span aria-hidden="true">&rarr;</span>

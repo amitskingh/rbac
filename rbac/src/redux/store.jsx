@@ -1,33 +1,44 @@
 import { configureStore } from "@reduxjs/toolkit"
+import { persistStore, persistReducer } from "redux-persist"
+import storage from "redux-persist/lib/storage" // Default: localStorage for web
 import authReducer from "./slices/authSlice"
 import loadingReducer from "./slices/loadingSlice"
 import errorReducer from "./slices/errorSlice"
-import { persistStore, persistReducer } from "redux-persist"
-import storage from "redux-persist/lib/storage"
 import notificationReducer from "./slices/notificationSlice"
+import { combineReducers } from "redux"
 
-const persistConfig = {
-  key: "root",
+// Persist configuration for the `auth` reducer
+const authPersistConfig = {
+  key: "auth",
   storage,
-  whitelist: ["auth"], // Persist only the auth state
 }
 
-const persistedAuthReducer = persistReducer(persistConfig, authReducer)
+// Combine reducers
+const rootReducer = combineReducers({
+  auth: persistReducer(authPersistConfig, authReducer), // Only persist `auth`
+  loading: loadingReducer,
+  error: errorReducer,
+  notification: notificationReducer,
+})
 
+// Configure store
 const store = configureStore({
-  reducer: {
-    auth: persistedAuthReducer,
-    loading: loadingReducer,
-    error: errorReducer,
-    notification: notificationReducer,
-  },
+  reducer: rootReducer,
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
       serializableCheck: {
-        ignoredActions: ["persist/PERSIST", "persist/REHYDRATE"],
+        ignoredActions: [
+          "persist/PERSIST",
+          "persist/REHYDRATE",
+          "persist/REGISTER",
+          "persist/FLUSH",
+          "persist/PAUSE",
+          "persist/PURGE",
+        ],
       },
     }),
 })
 
+// Persistor setup
 export const persistor = persistStore(store)
 export default store
