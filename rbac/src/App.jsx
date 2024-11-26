@@ -28,7 +28,6 @@ const router = createBrowserRouter([
 
   // Login Page
   { path: "/login", element: <Login /> },
-  { path: "/check", element: <Test /> },
 
   // App Routes (Authenticated Area)
   {
