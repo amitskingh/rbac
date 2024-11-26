@@ -1,13 +1,5 @@
 import { createSlice, isAction } from "@reduxjs/toolkit"
 
-const temp = {
-  id: 0,
-  name: "Naruto",
-  email: "naruto@gmail.com",
-  role: "moderator",
-  password: "naruto",
-}
-
 const initialState = {
   user: null,
   isAuthenticated: false,

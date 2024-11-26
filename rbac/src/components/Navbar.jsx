@@ -9,9 +9,11 @@ import {
 } from "@headlessui/react"
 import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline"
 
-import { Link, useLocation } from "react-router-dom"
-import { useSelector } from "react-redux"
+import { Link, Navigate, useLocation } from "react-router-dom"
+import { useDispatch, useSelector } from "react-redux"
 import { useState } from "react"
+
+import { logout } from "../redux/slices/authSlice"
 
 const navigation = [
   { name: "All Posts", to: "/app/all-posts", role: "admin,moderator,user" },
@@ -28,9 +30,18 @@ function classNames(...classes) {
 export default function Navbar() {
   const user = useSelector((state) => state.auth.user)
   const location = useLocation()
+  const dispatch = useDispatch()
 
   if (!user) {
     return null // Or render a "Login" button if the user isn't authenticated
+  }
+
+  const handleLogout = async () => {
+    try {
+      dispatch(logout())
+    } catch (error) {
+      console.log(error)
+    }
   }
 
   return (
@@ -120,12 +131,13 @@ export default function Navbar() {
                   </a>
                 </MenuItem>
                 <MenuItem>
-                  <div
-                    href="#"
+                  <a
+                    href="/"
+                    onClick={handleLogout}
                     className="block px-4 py-2 text-sm text-gray-700 data-[focus]:bg-gray-100 data-[focus]:outline-none"
                   >
                     Sign out
-                  </div>
+                  </a>
                 </MenuItem>
               </MenuItems>
             </Menu>

@@ -31,7 +31,11 @@ import { useDispatch, useSelector } from "react-redux"
 import { setNotification } from "../redux/slices/notificationSlice"
 import Notifications from "../components/Notifications"
 
-export default function Example() {
+import { setLoading } from "../redux/slices/loadingSlice"
+import Loading from "../components/Loading"
+const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms))
+
+export default function CreateUser() {
   const [Role, setRole] = useState("user")
   console.log(permissions[Role])
   const dispatch = useDispatch()
