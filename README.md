@@ -8,14 +8,14 @@ This is a role-based access control (RBAC) frontend application built with React
 
   - Admin
 
-    - email: admin123@example.com | password: admin123
+    - email: admin@example.com | password: admin123
 
   - Moderator
 
-    - email: moderator123@example.com | password: mod123
+    - email: moderator@example.com | password: mod123
 
   - User
-    - email: user123@example.com | password: user123
+    - email: user@example.com | password: user123
 
 ## Features
 
