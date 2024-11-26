@@ -10,7 +10,7 @@ const notificationSlice = createSlice({
   initialState, // Use 'initialState' for defining the initial state
   reducers: {
     setNotification: (state, action) => {
-      console.log(action)
+      //console.log(action)
 
       state.notification = {
         message: action.payload.message,

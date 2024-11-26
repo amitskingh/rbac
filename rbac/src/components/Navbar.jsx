@@ -40,7 +40,7 @@ export default function Navbar() {
     try {
       dispatch(logout())
     } catch (error) {
-      console.log(error)
+      //console.log(error)
     }
   }
 

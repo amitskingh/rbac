@@ -24,7 +24,7 @@ export default function AllPosts() {
     getAllPosts()
   }, [])
 
-  console.log(isLoading)
+  //console.log(isLoading)
 
   const handleDeletePost = async () => {
     try {

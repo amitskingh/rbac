@@ -10,9 +10,9 @@ const Notifications = () => {
     return null
   }
 
-  console.log(notification)
+  //console.log(notification)
 
-  console.log(notification.message, notification.type)
+  //console.log(notification.message, notification.type)
 
   return (
     <div className="fixed top-16 space-y-4 z-50">

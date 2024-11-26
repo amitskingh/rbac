@@ -53,7 +53,7 @@ export default function Login() {
         })
       ) // Dispatch the login action with the user data
 
-      console.log(user)
+      //console.log(user)
 
       navigate("/app") // Redirect to dashboard on successful login
     } catch (err) {

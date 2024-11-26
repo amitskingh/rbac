@@ -4,7 +4,7 @@ import { useSelector } from "react-redux"
 const ProtectedRoute = ({ allowedRoles, children }) => {
   const { user } = useSelector((state) => state.auth)
 
-  console.log("User from routes: ", user)
+  //console.log("User from routes: ", user)
 
   // Check if user exists and has the appropriate role
   if (!user || !allowedRoles.includes(user.role)) {

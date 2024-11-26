@@ -37,7 +37,7 @@ const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms))
 
 export default function CreateUser() {
   const [Role, setRole] = useState("user")
-  console.log(permissions[Role])
+  //console.log(permissions[Role])
   const dispatch = useDispatch()
 
   const handleCreateUser = async (e) => {
@@ -185,7 +185,7 @@ export default function CreateUser() {
                   </p>
                   <div className="mt-2 flex flex-wrap">
                     {permissions[Role].badges.map((badge) => {
-                      console.log("Badge:", badge)
+                      //console.log("Badge:", badge)
 
                       return (
                         <span className="mr-1 items-center rounded-md bg-indigo-50 px-2 py-1 text-xs font-medium text-indigo-700 ring-1 ring-inset ring-indigo-700/10">

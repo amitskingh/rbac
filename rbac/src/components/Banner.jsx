@@ -4,7 +4,7 @@ import { Link } from "react-router-dom"
 
 export default function Banner() {
   const { isAuthenticated } = useSelector((state) => state.auth)
-  console.log(isAuthenticated)
+  //console.log(isAuthenticated)
 
   return (
     <div className="flex justify-center items-center gap-x-6 overflow-hidden bg-gray-50 px-6 py-2.5 sm:px-3.5">
