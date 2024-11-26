@@ -1,12 +1,5 @@
 export const users = [
   {
-    id: 0,
-    name: "Naruto",
-    email: "naruto@gmail.com",
-    role: "user",
-    password: "naruto",
-  },
-  {
     id: 1,
     name: "Admin",
     email: "admin@example.com",

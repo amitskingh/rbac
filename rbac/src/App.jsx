@@ -20,7 +20,6 @@ import NotFound from "./pages/NotFound.jsx"
 
 import ProtectedRoute from "./routes/ProtectedRoute.jsx"
 import AppLayout from "./pages/AppLayout.jsx"
-import Test from "./Test.jsx"
 
 const router = createBrowserRouter([
   // Landing Page Route
