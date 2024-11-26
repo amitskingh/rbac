@@ -1,8 +1,21 @@
----
-# React RBAC Frontend with Mock Data
+## React RBAC Frontend
 
 This is a role-based access control (RBAC) frontend application built with React and TailwindCSS. It uses mock data to simulate login functionality and `redux-persist` to persist the user information even after refresh. The application allows different roles `Admin`, `Moderator` and `User` to access specific features.
----
+
+#### [Visit Website](https://rbacapp.netlify.app/)
+
+- **Credentials**
+
+  - Admin
+
+    - email: admin123@example.com | password: admin123
+
+  - Moderator
+
+    - email: moderator123@example.com | password: mod123
+
+  - User
+    - email: user123@example.com | password: user123
 
 ## Features
 
@@ -57,7 +70,7 @@ npm start
 ## Folder Structure
 
 ```
-
+src/
 ├── components/         # Reusable components like Navbar
 ├── pages/              # Application pages (Login, AllPosts, etc.)
 ├── routes/             # ProtectedRoute component for role-based access

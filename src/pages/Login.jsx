@@ -118,7 +118,7 @@ export default function Login() {
                 </label>
                 <div className="text-sm">
                   <a
-                    href="/forgot-password"
+                    href="#"
                     className="font-semibold text-indigo-600 hover:text-indigo-500"
                   >
                     Forgot password?
